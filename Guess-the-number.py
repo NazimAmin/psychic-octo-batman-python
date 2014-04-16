@@ -1,4 +1,4 @@
-"Guess-The-Number" game implimentation using SIMPLE GUI module
+***"Guess-The-Number" game implimentation using SIMPLE GUI module***
 
 import simplegui  #custom module by Rice University
 import math
@@ -25,21 +25,15 @@ def new_game():
 # button that changes range to range [0,100) and restarts
 def range100():
 
-    global secret_number, remaining_guesses, high
-    high = 100
-    secret_number = random.randrange(0, 100)
-   
-    remaining_guesses = math.ceil(math.log(100 - 0,2))
-    
+    global high
+    high = 100    
     new_game()
     
 # button that changes range to range [0,1000) and restarts
 def range1000():
 
-    global secret_number, remaining_guesses, high
+    global high
     high = 1000
-    secret_number = random.randrange(0, high)
-    remaining_guesses = math.ceil(math.log(high - 0,2))
     new_game()
     
 # main game logic 
@@ -80,4 +74,3 @@ frame.add_input("Enter a guess", input_guess, 200)
 # call new_game and start frame
 new_game()
 frame.start()
-
