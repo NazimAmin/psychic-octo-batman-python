@@ -1,4 +1,4 @@
-***"Guess-The-Number" game implimentation using SIMPLE GUI module***
+"""'Guess-The-Number' game implimentation using SIMPLE GUI module"""
 
 import simplegui  #custom module by Rice University
 import math
