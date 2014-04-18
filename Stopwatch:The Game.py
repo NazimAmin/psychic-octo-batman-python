@@ -1,8 +1,5 @@
- "Stopwatch: The Game"
- 
+#"Stopwatch: The Game"
 import simplegui
-import random
-import math
 
 # define global variables
 t = 0
@@ -27,12 +24,9 @@ def format(t):
     return str(minutes)+':'+str(seconds)+'.'+str(t)
     
 # define event handlers for buttons; "Start", "Stop", "Reset"
-
-#timer start handler
 def start():
     timer.start()
-
-#timer stop handler
+    
 def stop():
     global numberOfStops, success
     if timer.is_running():
@@ -40,8 +34,7 @@ def stop():
         numberOfStops += 1
         if seconds%10 == 0:
             success += 1
-
-#timer reset handler             
+             
 def reset():
     global t, minutes, seconds, tenths, success, numberOfStops
     t,minutes,seconds,tenths,success,numberOfStops = 0,0,0,0,0,0
@@ -52,28 +45,30 @@ def tick():
     global tenths
     tenths += 1
 
-# define draw handler
+# defining draw handler
 def draw(canvas):
     FormatTime = format(t)
-    size = 60
-    width = frame.get_canvas_textwidth(FormatTime, size)
+    fontSize = 50
+    width = frame.get_canvas_textwidth(FormatTime, fontSize)
     canvasWidth = (frameWidth - width)//2
-    canvasHeight = (frameHeight*2 + size)//4
-    canvas.draw_text(FormatTime,[canvasWidth, canvasHeight],size,'RED')
+    canvasHeight = (frameHeight*2 + fontSize)//4
+    canvas.draw_text(FormatTime,[canvasWidth, canvasHeight],fontSize,'RED')
     
+    fontSize = 30
     formatAttempt = str(success)+'/'+str(numberOfStops)
-    widthOfScore = frame.get_canvas_textwidth(formatAttempt, 30)
-    canvas.draw_text(formatAttempt, (frameWidth - widthOfScore*5//4, 30), 30,'YELLOW')
+    widthOfScore = frame.get_canvas_textwidth(formatAttempt, fontSize)
+    canvas.draw_text(formatAttempt, (frameWidth - widthOfScore*5//4, fontSize), fontSize,'YELLOW')
     
-# create frame
+# creating frame
 frame = simplegui.create_frame("STOPWATCH", frameWidth, frameHeight)
 timer = simplegui.create_timer(100, tick)
 
-# register event handlers
+# registering event handlers
 frame.set_draw_handler(draw)
 startButton = frame.add_button("START", start)
 stopButton = frame.add_button("STOP", stop)
 resetButton = frame.add_button("RESET", reset)
 
-# start frame
+# starting frame
 frame.start()
+
