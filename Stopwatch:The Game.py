@@ -46,7 +46,7 @@ def tick():
 
 # defining draw handler
 def draw(canvas):
-    FormatTime = format(t)
+    FormatTime = format(0)
     fontSize = 50
     width = frame.get_canvas_textwidth(FormatTime, fontSize)
     canvasWidth = (frameWidth - width)//2
