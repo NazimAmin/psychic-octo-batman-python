@@ -2,7 +2,6 @@
 import simplegui
 
 # define global variables
-t = 0
 frameWidth = 300
 frameHeight = 200
 minutes = 0
@@ -36,8 +35,8 @@ def stop():
             success += 1
              
 def reset():
-    global t, minutes, seconds, tenths, success, numberOfStops
-    t,minutes,seconds,tenths,success,numberOfStops = 0,0,0,0,0,0
+    global minutes, seconds, tenths, success, numberOfStops
+    minutes,seconds,tenths,success,numberOfStops = 0,0,0,0,0
     timer.stop()
 
 # define event handler for timer with 0.1 sec interval
